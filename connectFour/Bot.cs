@@ -74,6 +74,26 @@ namespace connectFour
 
             Game.state = doStep(bestStep, state, botTurn);
             Game.isPlayerCurrentTurn = true;
+            if (Game.checkWin(Game.state) == Game.convertTurnToString(botTurn))
+            {
+                Game.isGameOver = true;
+                Game.isPlayerWin = false;
+                Game.isGameTie = false;
+            }
+
+            if (Game.checkWin(Game.state) == Game.convertTurnToString(humTurn))
+            {
+                Game.isGameOver = true;
+                Game.isPlayerWin = true;
+                Game.isGameTie = false;
+
+            }
+
+            if (Game.checkWin(Game.state) == "tie")
+            {
+                Game.isGameOver = true;
+                Game.isGameTie = true;
+            }
         }
 
         enum Scores
@@ -96,7 +116,7 @@ namespace connectFour
                 return 0;
             }
 
-            if (depth > 6)
+            if (depth > 7)
                 return 0;
 
             if (isMaximizing)

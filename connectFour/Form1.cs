@@ -18,37 +18,107 @@ namespace connectFour
 
         private void gameBoardPanel_Paint(object sender, PaintEventArgs e)
         {
+            if (!Game.isGameStarted)
+                return;
             g = gameBoardPanel.CreateGraphics();
             DrawBoard();
             DrawState(Game.state);
+            RefreshButtons();
+            playerStepRadiobutton.Checked = Game.isPlayerFirstTurn;
+            botStepRadiobutton.Checked = !Game.isPlayerFirstTurn;
 
-            if (Game.checkWin(Game.state)=="x")
+            if (Game.isGameOver)
             {
-                gameStatusLabel.Text = "x";
+                if (Game.isGameTie)
+                {
+                    gameStatusLabel.Text = "Tie!";
+
+                } else if (Game.isPlayerWin)
+                {
+                    gameStatusLabel.Text = "Player won!";
+                } else
+                {
+                    gameStatusLabel.Text = "Bot won!";
+                }
             }
 
-            if (Game.checkWin(Game.state) == "o")
+
+
+            if (!Game.isGameOver)
             {
-                gameStatusLabel.Text = "o";
+
+                if (!Game.isPlayerCurrentTurn)
+                {
+                    gameStatusLabel.Text = "Bot's turn";
+                    Bot.bestStep(Game.state);
+                    gameBoardPanel.Refresh();
+                } else
+                {
+                    gameStatusLabel.Text = "Player's turn";
+                }
             }
+            
+        }
 
-            if (Game.checkWin(Game.state) == "tie")
+        private void RefreshButtons()
+        {
+
+            var availCols = Game.availableCols(Game.state);
+            if (availCols.Contains(0) && !Game.isGameOver)
             {
-                gameStatusLabel.Text = "tie";
+                col0Button.Enabled = Game.isPlayerCurrentTurn;
             }
-
-            col0Button.Enabled = Game.isPlayerCurrentTurn;
-            col1Button.Enabled = Game.isPlayerCurrentTurn;
-            col2Button.Enabled = Game.isPlayerCurrentTurn;
-            col3Button.Enabled = Game.isPlayerCurrentTurn;
-            col4Button.Enabled = Game.isPlayerCurrentTurn;
-            col5Button.Enabled = Game.isPlayerCurrentTurn;
-            col6Button.Enabled = Game.isPlayerCurrentTurn;
-
-            if (!Game.isPlayerCurrentTurn)
+            else
             {
-                Bot.bestStep(Game.state);
-                gameBoardPanel.Refresh();
+                col0Button.Enabled = false;
+            }
+            if (availCols.Contains(1) && !Game.isGameOver)
+            {
+                col1Button.Enabled = Game.isPlayerCurrentTurn;
+            }
+            else
+            {
+                col1Button.Enabled = false;
+            }
+            if (availCols.Contains(2) && !Game.isGameOver)
+            {
+                col2Button.Enabled = Game.isPlayerCurrentTurn;
+            }
+            else
+            {
+                col2Button.Enabled = false;
+            }
+            if (availCols.Contains(3) && !Game.isGameOver)
+            {
+                col3Button.Enabled = Game.isPlayerCurrentTurn;
+            }
+            else
+            {
+                col3Button.Enabled = false;
+            }
+            if (availCols.Contains(4) && !Game.isGameOver)
+            {
+                col4Button.Enabled = Game.isPlayerCurrentTurn;
+            }
+            else
+            {
+                col4Button.Enabled = false;
+            }
+            if (availCols.Contains(5) && !Game.isGameOver)
+            {
+                col5Button.Enabled = Game.isPlayerCurrentTurn;
+            }
+            else
+            {
+                col5Button.Enabled = false;
+            }
+            if (availCols.Contains(6) && !Game.isGameOver)
+            {
+                col6Button.Enabled = Game.isPlayerCurrentTurn;
+            }
+            else
+            {
+                col6Button.Enabled = false;
             }
         }
 
@@ -178,12 +248,14 @@ namespace connectFour
                 Game.isGameStarted = true;
                 restartButton.Text = "Restart";
                 firstStepSettingsBox.Enabled = false;
+                
                 gameBoardPanel.Refresh();
             } else
             {
                 Game.isGameStarted = false;
                 firstStepSettingsBox.Enabled = true;
                 restartButton.Text = "Start";
+                gameStatusLabel.Text = "Press Start!";
                 Game.Init();
                 gameBoardPanel.Refresh();
                 col0Button.Enabled = false;

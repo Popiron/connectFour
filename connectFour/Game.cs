@@ -15,7 +15,10 @@ namespace connectFour
         public static bool isPlayerCurrentTurn = true;
         public static bool isGameStarted = false;
         public static bool isGameOver = false;
+        public static bool isGameTie = false;
         public static bool isPlayerWin;
+        private static Game.GameTurn botTurn;
+        private static Game.GameTurn humTurn;
 
         public static String[,] state = { 
             { "", "", "", "", "", "", },
@@ -44,6 +47,7 @@ namespace connectFour
             isGameStarted = false;
             isGameOver = false;
             isPlayerWin = new bool();
+            isGameTie = false;
         }
 
         public static String convertTurnToString(GameTurn turn)
@@ -82,6 +86,16 @@ namespace connectFour
         
         public static void doStep(int colId)
         {
+            if (Game.isPlayerFirstTurn)
+            {
+                humTurn = Game.GameTurn.First;
+                botTurn = Game.GameTurn.Second;
+            }
+            else
+            {
+                humTurn = Game.GameTurn.Second;
+                botTurn = Game.GameTurn.First;
+            }
             if (!isPlayerCurrentTurn)
                 return;
 
@@ -99,6 +113,26 @@ namespace connectFour
             }
 
             isPlayerCurrentTurn = false;
+            if (Game.checkWin(Game.state) == Game.convertTurnToString(botTurn))
+            {
+                Game.isGameOver = true;
+                Game.isPlayerWin = false;
+                Game.isGameTie = false;
+            }
+
+            if (Game.checkWin(Game.state) == Game.convertTurnToString(humTurn))
+            {
+                Game.isGameOver = true;
+                Game.isPlayerWin = true;
+                Game.isGameTie = false;
+
+            }
+
+            if (Game.checkWin(Game.state) == "tie")
+            {
+                Game.isGameOver = true;
+                Game.isGameTie = true;
+            }
         }
         private static bool equals4(String a,String b,String c,String d)
         {

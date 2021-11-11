@@ -55,78 +55,92 @@ namespace connectFour
             // 
             // col0Button
             // 
+            this.col0Button.Enabled = false;
+            this.col0Button.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.col0Button.Location = new System.Drawing.Point(265, 92);
             this.col0Button.Margin = new System.Windows.Forms.Padding(0);
             this.col0Button.Name = "col0Button";
             this.col0Button.Size = new System.Drawing.Size(100, 68);
             this.col0Button.TabIndex = 1;
-            this.col0Button.Text = "col 0";
+            this.col0Button.Text = "↓";
             this.col0Button.UseVisualStyleBackColor = true;
             this.col0Button.Click += new System.EventHandler(this.col0Button_Click);
             // 
             // col1Button
             // 
+            this.col1Button.Enabled = false;
+            this.col1Button.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.col1Button.Location = new System.Drawing.Point(365, 92);
             this.col1Button.Margin = new System.Windows.Forms.Padding(0);
             this.col1Button.Name = "col1Button";
             this.col1Button.Size = new System.Drawing.Size(100, 68);
             this.col1Button.TabIndex = 2;
-            this.col1Button.Text = "col 1";
+            this.col1Button.Text = "↓";
             this.col1Button.UseVisualStyleBackColor = true;
             this.col1Button.Click += new System.EventHandler(this.col1Button_Click);
             // 
             // col2Button
             // 
+            this.col2Button.Enabled = false;
+            this.col2Button.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.col2Button.Location = new System.Drawing.Point(465, 92);
             this.col2Button.Margin = new System.Windows.Forms.Padding(0);
             this.col2Button.Name = "col2Button";
             this.col2Button.Size = new System.Drawing.Size(100, 68);
             this.col2Button.TabIndex = 3;
-            this.col2Button.Text = "col 2";
+            this.col2Button.Text = "↓";
             this.col2Button.UseVisualStyleBackColor = true;
             this.col2Button.Click += new System.EventHandler(this.col2Button_Click);
             // 
             // col3Button
             // 
+            this.col3Button.Enabled = false;
+            this.col3Button.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.col3Button.Location = new System.Drawing.Point(565, 92);
             this.col3Button.Margin = new System.Windows.Forms.Padding(0);
             this.col3Button.Name = "col3Button";
             this.col3Button.Size = new System.Drawing.Size(100, 68);
             this.col3Button.TabIndex = 4;
-            this.col3Button.Text = "col 3";
+            this.col3Button.Text = "↓";
             this.col3Button.UseVisualStyleBackColor = true;
             this.col3Button.Click += new System.EventHandler(this.col3Button_Click);
             // 
             // col4Button
             // 
+            this.col4Button.Enabled = false;
+            this.col4Button.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.col4Button.Location = new System.Drawing.Point(665, 92);
             this.col4Button.Margin = new System.Windows.Forms.Padding(0);
             this.col4Button.Name = "col4Button";
             this.col4Button.Size = new System.Drawing.Size(100, 68);
             this.col4Button.TabIndex = 5;
-            this.col4Button.Text = "col 4";
+            this.col4Button.Text = "↓";
             this.col4Button.UseVisualStyleBackColor = true;
             this.col4Button.Click += new System.EventHandler(this.col4Button_Click);
             // 
             // col5Button
             // 
+            this.col5Button.Enabled = false;
+            this.col5Button.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.col5Button.Location = new System.Drawing.Point(765, 92);
             this.col5Button.Margin = new System.Windows.Forms.Padding(0);
             this.col5Button.Name = "col5Button";
             this.col5Button.Size = new System.Drawing.Size(100, 68);
             this.col5Button.TabIndex = 6;
-            this.col5Button.Text = "col 5";
+            this.col5Button.Text = "↓";
             this.col5Button.UseVisualStyleBackColor = true;
             this.col5Button.Click += new System.EventHandler(this.col5Button_Click);
             // 
             // col6Button
             // 
+            this.col6Button.Enabled = false;
+            this.col6Button.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.col6Button.Location = new System.Drawing.Point(865, 92);
             this.col6Button.Margin = new System.Windows.Forms.Padding(0);
             this.col6Button.Name = "col6Button";
             this.col6Button.Size = new System.Drawing.Size(100, 68);
             this.col6Button.TabIndex = 7;
-            this.col6Button.Text = "col 6";
+            this.col6Button.Text = "↓";
             this.col6Button.UseVisualStyleBackColor = true;
             this.col6Button.Click += new System.EventHandler(this.col6Button_Click);
             // 
@@ -136,9 +150,9 @@ namespace connectFour
             this.gameStatusLabel.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.gameStatusLabel.Location = new System.Drawing.Point(539, 28);
             this.gameStatusLabel.Name = "gameStatusLabel";
-            this.gameStatusLabel.Size = new System.Drawing.Size(159, 32);
+            this.gameStatusLabel.Size = new System.Drawing.Size(150, 32);
             this.gameStatusLabel.TabIndex = 8;
-            this.gameStatusLabel.Text = "Game status";
+            this.gameStatusLabel.Text = "Press Start!";
             // 
             // restartButton
             // 
